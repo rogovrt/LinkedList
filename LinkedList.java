@@ -27,19 +27,15 @@ public class LinkedList {
         return size == 0;
     }
 
-    public boolean contains(Object o) throws NullPointerException {
+    public boolean contains(Object o) {
         Element x = first;
         int i = 0;
-        try {
-            while ((i < size) && (!x.item.equals(o))) {
-                x = x.next;
-                i++;
-            }
-        } catch (NullPointerException e) {
-            System.out.println("Can't compare with null");
-        } finally {
-            return i != size;
+        while ((i < size) && (!x.item.equals(o))) {
+            x = x.next;
+            i++;
         }
+        return i != size;
+
     }
 
     public boolean add(Object o) {
@@ -141,8 +137,6 @@ public class LinkedList {
         int i = 0;
         while ((i < size) && (get(i).equals(anotherLinkedList.get(i))))
             i++;
-        System.out.println(i);
-        System.out.println(size);
         return i == size;
     }
 }
